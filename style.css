@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    align-items: center;
+    background-color: #242A32;
+    color: white;
+    gap: 20px;
+    margin: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+#container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* border: solid red; */
+}
+#container div{
+    margin: 10px;
+    width: 100px;
+    background-color: #1DA4E4;
+    text-align: center;
+    color: black;
+    object-fit: cover;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+}
+select,input{
+    padding: 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.arr-val,.arr-size{
+    width: 100%;
+    display: flex;
+    white-space: pre;
+    align-items: center;
+}
+.dropdown{
+    display: flex;
+    align-items: center;
+}
+h1{
+    font-size: 60px;
+
+}
+.but1,.but2{
+    width: 100px;
+    padding: 15px;
+    border: none;
+    background-color: rgb(32, 177, 196);
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.but1:hover,.but2:hover{
+    background-color: #5ab5df;
+}
+.major1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.major1 div{
+    width: 20%;
+}
+.major2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.major2 div{
+    margin: 20px;
+    gap: 30px;
+}
+
+@media screen and (max-width:980px){
+    .major1{
+        flex-direction: column;
+    }
+    .major1 div{
+        width: 90%;
+    }
+}
+@media screen and (max-width:570px){
+    h1{
+        font-size: 40px;
+    }
+}

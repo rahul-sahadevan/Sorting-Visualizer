@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Sorting Visualizer</h1>
+    <br>
+    <div class="major1">
+        <div class="dropdown">
+            <label for="select">Sorting: </label>
+             <select name="Select the Sorting" id="select" class="drop">
+                 <option value="">Selcet Sorting</option>
+                 <option value="BubbleSort">Bubble Sort</option>
+                 <option value="SelectionSort">Selection Sort</option>
+                 <option value="InsertionSort">Insertion Sort</option>
+             </select>
+    
+        </div>
+        <div class="arr-val">
+                <label for="values">Values: </label>
+                <input placeholder="Enter Values" type="text" class="values" id="input-arr">
+            </div>
+        <div class="arr-size">
+                
+                <label for="size">Size: </label>
+                <input type="number" placeholder="Size of Array" class="size" id="size" required>
+         </div>
+
+    </div>
+
+    <br>
+    <br>
+    <div class="major2">
+        <div id="container"></div>
+        <div>
+            <button class="but1" onclick=init()>Array </button>
+            <button class="but2" onclick=play()>Play</button>
+        </div>
+    </div>
+
+    
+    <script src="./script.js"></script>
+</body>
+</html>
