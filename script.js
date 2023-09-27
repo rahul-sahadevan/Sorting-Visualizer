@@ -42,6 +42,7 @@ function init(){
     showBars();
 
 }
+
 // function to check sorting method
 function play(){
     const copy = [...arr];
@@ -60,12 +61,18 @@ function play(){
     }
     if(selectedInput.value === "InsertionSort")
     {
-        const moves =  insetionSort(copy);
+        const moves =  insertionSort(copy);
         console.log(moves)
         animate(moves);
     }
 
 }
+// reset function 
+function reset(){
+    location.reload();
+}
+
+
 // function to swap the bars according to the values
 async function animate(moves){
     if(moves.length == 0){
@@ -73,11 +80,14 @@ async function animate(moves){
         return;
     }
     const move = moves.shift();
+    console.log(move)
     const [i,j] = move.indices;
     if(move.type == "swap"){
         await swapBars(i, j);
         console.log(i,j);
         [arr[i],arr[j]] = [arr[j],arr[i]];
+        [perArr[i], perArr[j]] = [perArr[j], perArr[i]];
+        
     }
     showBars(move);
     setTimeout(() =>{
@@ -123,7 +133,7 @@ function selectionSort(arr){
     return moves
 }
 // insertion sort algorithem
-function insetionSort(arr){
+function insertionSort(arr){
     const moves = [];
     for(let i=1;i<n;i++){
         for(let j=i-1;j>=0;j--){
@@ -132,6 +142,7 @@ function insetionSort(arr){
                 let temp = arr[j+1];
                 arr[j+1] = arr[j];
                 arr[j] = temp;
+                console.log(arr);
                 moves.push({indices:[j+1,j],type:"swap"});
             }
             else{
@@ -139,15 +150,15 @@ function insetionSort(arr){
             }
         }
     }
+    console.log(arr);
     return moves;
 }
+   
 // function to make bars and stylings
 function showBars(move){
+    
     container.innerHTML = "";
-    let max = 0;
-    for(let i = 0;i<arr.length;i++){
-        max = Math.max(max,arr[i]);
-    }
+   
     for(let i =0;i<arr.length;i++){
         const bar = document.createElement("div");
         // const val = document.createElement("p");
@@ -155,14 +166,15 @@ function showBars(move){
         bar. innerText = Math.floor(arr[i]);
         container.style.width = "100%"
         container.style.height = "350px"
-        let mHeight = (max * 100)/2;
-        console.log(mHeight);
+       
+      
         let barHeight = (perArr[i] * 100);
         bar.style.height = `${barHeight}%`;
         if(move && move.indices.includes(i)){
             bar.style.backgroundColor = 
                 move.type == "swap"?"lightgreen":"blue";
                 bar.style.transform = "scale(1.1)";
+           
         }
         container.append(bar);
 
@@ -174,10 +186,14 @@ function showBars(move){
 async function swapBars(i, j) {
     const bar1 = container.children[i];
     const bar2 = container.children[j];
-
-    const tempHeight = bar1.style.height;
+    
+    const  tempHeight = bar1.style.height;
+   
     bar1.style.height = bar2.style.height;
+ 
     bar2.style.height = tempHeight;
+    
+   
 
     // Add CSS transitions for smooth animation
     bar1.style.transition = "height 0.8s";
