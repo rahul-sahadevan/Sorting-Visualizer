@@ -135,7 +135,7 @@ function selectionSort(arr){
 // insertion sort algorithem
 function insertionSort(arr){
     const moves = [];
-    for(let i=1;i<n;i++){
+    for(let i=1;i<arr.length;i++){
         for(let j=i-1;j>=0;j--){
             moves.push({indices:[j,j+1],type:"comp"});
             if(arr[j+1]<arr[j]){
